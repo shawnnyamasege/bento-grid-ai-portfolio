@@ -5,6 +5,7 @@ export default function ChatSection({delay = 0}) {
   return (
     <Section delay={delay}>
       <div className="chat-container">
+        chat component
 
       </div>
     </Section>
