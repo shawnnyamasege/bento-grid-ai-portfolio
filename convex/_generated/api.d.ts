@@ -9,8 +9,10 @@
  */
 
 import type * as demo_chat from "../demo/chat.js";
+import type * as shawnbot_internal_actons from "../shawnbot/internal/actons.js";
 import type * as shawnbot_lib from "../shawnbot/lib.js";
 import type * as shawnbot_mutation from "../shawnbot/mutation.js";
+import type * as shawnbot_queries from "../shawnbot/queries.js";
 import type * as users from "../users.js";
 
 import type {
@@ -29,8 +31,10 @@ import type {
  */
 declare const fullApi: ApiFromModules<{
   "demo/chat": typeof demo_chat;
+  "shawnbot/internal/actons": typeof shawnbot_internal_actons;
   "shawnbot/lib": typeof shawnbot_lib;
   "shawnbot/mutation": typeof shawnbot_mutation;
+  "shawnbot/queries": typeof shawnbot_queries;
   users: typeof users;
 }>;
 declare const fullApiWithMounts: typeof fullApi;

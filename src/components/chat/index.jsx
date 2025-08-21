@@ -1,28 +1,31 @@
-import "../../styles/chat.css"
+import "../../styles/chat/chat.css"
 import { BrushCleaning } from "lucide-react"
 import { api } from "../../../convex/_generated/api"
 import { useMutation } from "convex/react"
 import { useEffect } from "react"
 import { useAnonUser } from "./AnonUserContext"
-import { useState, useCallback, useRef } from "react"
-import { TruckElectric } from "lucide-react"
+import { useState, useCallback, useRef } from "react" 
+import { useQueryWithStatus } from "./helper"
+import MessageInput from "./MessageInput"
 
 
 const currentThreadIdStoragekey = "shawnbot_current_thread_id"
 
-export default function Chat() {
+export default function Chat({ initialMessage }) {
   const anonUser = useAnonUser()
   const hasInitialized = useRef(false)
   const [currentThreadId, setCurrentThreadId] = useState(
   () => localStorage[currentThreadIdStoragekey] || null
   )
 
-console.log('anon user', anonUser)
   const createThread = useMutation(api.shawnbot.mutation.createThreadForUser)
 
+  const threadQuery = useQueryWithStatus(
+    api.shawnbot.queries.findThreadForUser,
+    currentThreadId && anonUser ? {threadId: currentThreadId, userId: anonUser._id} : "skip"
+  )
+
   const handleCreateThread = useCallback(async ()=> {
-console.log('inside handle create thread')
-    console.log('inside', anonUser, hasInitialized.current)
     if (!anonUser || hasInitialized.current) return
     
 
@@ -68,10 +71,19 @@ console.log('inside handle create thread')
         </button>
       </div>
 
-      <div className="chat-message-container">
+      <div className="chat-messages-container">
+
+
         {/* <MessagesList
 
         /> */}
+        <div className="chat-input-wrapper">
+          <MessageInput
+          userId={anonUser?._id}
+          threadId={threadQuery.data?._id}
+          defaultMessage={initialMessage}
+          />
+        </div>
       </div>
     </div>
   )
