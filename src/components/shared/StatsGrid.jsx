@@ -8,9 +8,9 @@ export default function StatsGrid({
 }) {
   // Default stats if none provided
   const defaultStats = [
-    { number: "4", icon: "🏁", label: "Projects Built" },
-    { number: "15", icon: "💻", label: "Tech Stack" },
-    { number: "06", icon: "⭐", label: "Yrs Exp" },
+    { number: "3", icon: "🏁", label: "Projects Built" },
+    { number: "7", icon: "💻", label: "Tech Stack" },
+    { number: "2", icon: "⭐", label: "Yrs Exp" },
   ]
 
   const statsToShow = stats.length > 0 ? stats : defaultStats

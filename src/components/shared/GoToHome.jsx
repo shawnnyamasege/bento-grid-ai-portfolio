@@ -1,7 +1,7 @@
 import { Section } from "./Section"
 import { Twitter, Instagram, Linkedin } from "lucide-react"
 import "../../styles/go-to-home.css"
-import meImage from "../../assets/avatars/me.jpg"
+import meImage from "../../assets/avatars/shawn.jpg"
 
 export default function GoToHomeSection({ delay = 0 }) {
   const handleGoHome = () => {
@@ -15,7 +15,7 @@ export default function GoToHomeSection({ delay = 0 }) {
         <div className="profile-image-container">
           <img src={meImage} alt="Profile" className="profile-image" />
         </div>
-        <h2 className="profile-name">Sidney</h2>
+        <h2 className="profile-name">Shawn</h2>
         <div className="social-icons">
           <span className="social-icon"><Twitter size={16} /></span>
           <span className="social-icon"><Instagram size={16} /></span>

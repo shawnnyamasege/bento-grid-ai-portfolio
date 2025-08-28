@@ -1,6 +1,6 @@
 import { User, Download, MapPin, Globe, GraduationCap, Clock, Building2, Heart, Send, MessageSquare } from "lucide-react"
 import { Section } from "../shared/Section"
-import meImage from "../../assets/avatars/me.jpg"
+import meImage from "../../assets/avatars/shawn.jpg"
 import whatsappIcon from "../../assets/whatsapp.svg"
 import { useState, useEffect } from "react"
 import "../../styles/profile-card.css"
@@ -58,7 +58,7 @@ export default function ProfileCardSection({ delay = 0 }) {
               </div>
               <button className="btn btn-primary">Resume <Download size={16} /></button>
             </div>
-            <h1>Sidney</h1>
+            <h1>Shawn</h1>
             <p className="profile-tagline">
               I am <TypingAnimation />
             </p>
@@ -69,7 +69,7 @@ export default function ProfileCardSection({ delay = 0 }) {
           <span className="tag"><Globe size={12} /> English & Swahili</span>
           <span className="tag"><GraduationCap size={12} /> Software Engineer</span>
           <span className="tag"><Clock size={12} /> EST</span>
-          <span className="tag"><Building2 size={12} /> Multimedia University</span>
+          <span className="tag"><Building2 size={12} /> University of Nairobi</span>
         </div>
         <div className="profile-actions">
           <button className="btn btn-full"><Send size={16} /> Telegram Me</button>

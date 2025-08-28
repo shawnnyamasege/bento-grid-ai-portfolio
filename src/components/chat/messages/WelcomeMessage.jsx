@@ -13,7 +13,7 @@ import { api } from "../../../../convex/_generated/api";
 function WelcomeMessage({ threadId, userId }) {
 
     const sendMessage = useMutation(
-        api.shawnbot.mutations.sendMessageToThreadFromUser,
+        api.shawnbot.mutation.sendMessageToThreadFromUser,
       ).withOptimisticUpdate((store, args) => {
         optimisticallySendMessage(api.shawnbot.queries.listMessagesForUserThread)(store, {
             threadId: args.threadId,

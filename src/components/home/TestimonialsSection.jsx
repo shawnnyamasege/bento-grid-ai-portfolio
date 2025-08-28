@@ -2,9 +2,10 @@ import { Section } from "../shared/Section"
 import { useEffect, useState, useRef } from "react"
 import { motion } from "motion/react"
 import { Star } from "lucide-react"
-import bradAvatar from "../../assets/avatars/brad.jpg"
-import pamAvatar from "../../assets/avatars/pam.jpg"
-import eduAvatar from "../../assets/avatars/edu.jpg"
+import tonyAvatar from "../../assets/avatars/tony.jpg"
+import lynnAvatar from "../../assets/avatars/lynn.jpg"
+import nicholasAvatar from "../../assets/avatars/nicholas.jpg"
+import nyenzoAvatar from "../../assets/avatars/nyenzo.jpg"
 import "../../styles/testimonials.css"
 import "../../styles/cards.css"
 
@@ -15,28 +16,28 @@ export default function TestimonialsSection({ delay = 0 }) {
   
   const testimonials = [
     {
-      name: "Brad Wilson",
-      location: "Nairobi, Kenya. 11, Feb 2024",
-      quote: "Sid's software development skills are exceptional. He built a complex AI-powered application that exceeded our expectations and delivered it ahead of schedule.",
-      avatar: bradAvatar
+      name: "Tony Muriuki",
+      location: "Nairobi, Kenya. 11, Aug 2025",
+      quote: "Shawn is an incredibly resourceful and reliable teammate. His strong grasp of software engineering concepts and problem-solving skills made him a go-to person in our projects. He not only delivered high-quality work but also supported others, ensuring the whole team moved forward.",
+      avatar: tonyAvatar
     },
     {
-      name: "Pam Rodriguez",
-      location: "Mombasa, Kenya. 21, Jan 2024",
-      quote: "Working with Sid on our design project was incredible. His creative vision and technical expertise brought our ideas to life in ways we never imagined.",
-      avatar: pamAvatar
+      name: "Lynn Mwende",
+      location: "Nairobi, Kenya. 20, Aug 2025",
+      quote: "Working with Shawn has been a great experience. He brings sharp technical skills, a strong work ethic, and a collaborative spirit to every project. Whenever we faced challenges, he always came up with creative and practical solutions that pushed the project to success",
+      avatar: lynnAvatar
     },
     {
-      name: "Edu Mwangi",
-      location: "Kisumu, Kenya. 15, Mar 2024",
-      quote: "Sid's AI integration skills are game-changing. He helped our team implement machine learning solutions that revolutionized our workflow and productivity.",
-      avatar: eduAvatar
+      name: "Nyenzo Sabwa",
+      location: "Kisumu, Kenya. 15, July 2025",
+      quote: "Shawn is one of the most dependable partners I have worked with. His technical expertise in software engineering is matched by his ability to share knowledge and support the team. He consistently adds value and makes collaboration seamless",
+      avatar: nyenzoAvatar
     },
     {
-      name: "Pam Rodriguez",
-      location: "Nakuru, Kenya. 8, Apr 2024",
-      quote: "Sid is an outstanding team player. His collaborative approach, clear communication, and problem-solving abilities make him invaluable to any project.",
-      avatar: pamAvatar
+      name: "Nicholas Musee",
+      location: "Machakos, Kenya. 8, Aug 2025",
+      quote: "Shawn is highly skilled in software engineering and always brings resourceful ideas to the table. A true team player!",
+      avatar: nicholasAvatar
     }
   ]
 

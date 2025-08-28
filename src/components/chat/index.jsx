@@ -8,6 +8,8 @@ import { useState, useCallback, useRef } from "react"
 import { useQueryWithStatus } from "./helper"
 import MessageInput from "./MessageInput"
 import MessageList from "./MessageList"
+import { Metronome } from 'ldrs/react'
+import 'ldrs/react/Metronome.css'
 
 const currentThreadIdStoragekey = "shawnbot_current_thread_id"
 
@@ -100,7 +102,11 @@ const chatBoxRef = useRef(null)
         ): (
           <div className="chat-loading-container">
             <div className="chat-loading-spinner">
-              loading...
+              <Metronome
+  size="48"
+  speed="1.7"
+  color="white" 
+/>
             
             </div>
           </div>

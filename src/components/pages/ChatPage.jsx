@@ -15,9 +15,9 @@ import ChatSection from "../chat"
 export default function ChatPage() {
   // Custom stats for chat page
   const chatStats = [
-    { number: "4", icon: "🏁", label: "Projects Built" },
-    { number: "15", icon: "💻", label: "Tech Stack" },
-    { number: "06", icon: "⭐", label: "Yrs Exp" },
+    { number: "3", icon: "🏁", label: "Projects Built" },
+    { number: "7", icon: "💻", label: "Tech Stack" },
+    { number: "2", icon: "⭐", label: "Yrs Exp" },
     { number: "24/7", icon: "🤖", label: "AI Support" }
   ]
 
