@@ -26,11 +26,11 @@ export const sendMessageToThreadFromUser = mutation({
     },
     handler: async (ctx, args) => {
 
-        await getAndValidateThread(ctx, { thread: args.threadId, userId: args.userId})
+        await getAndValidateThread(ctx, { threadId: args.threadId, userId: args.userId})
 
         const { messageId } = await shawnbot.saveMessage(ctx, {
             threadId: args.threadId,
-            propmt: args.message,
+            prompt: args.message,
 
             skipEmbeddings: true
         })

@@ -7,16 +7,20 @@ import { useAnonUser } from "./AnonUserContext"
 import { useState, useCallback, useRef } from "react" 
 import { useQueryWithStatus } from "./helper"
 import MessageInput from "./MessageInput"
-
+import MessageList from "./MessageList"
 
 const currentThreadIdStoragekey = "shawnbot_current_thread_id"
 
 export default function Chat({ initialMessage }) {
   const anonUser = useAnonUser()
   const hasInitialized = useRef(false)
+const chatBoxRef = useRef(null)
+
+
   const [currentThreadId, setCurrentThreadId] = useState(
   () => localStorage[currentThreadIdStoragekey] || null
   )
+  const [messageCount, setMessageCount] = useState(0);
 
   const createThread = useMutation(api.shawnbot.mutation.createThreadForUser)
 
@@ -24,6 +28,8 @@ export default function Chat({ initialMessage }) {
     api.shawnbot.queries.findThreadForUser,
     currentThreadId && anonUser ? {threadId: currentThreadId, userId: anonUser._id} : "skip"
   )
+
+ 
 
   const handleCreateThread = useCallback(async ()=> {
     if (!anonUser || hasInitialized.current) return
@@ -39,6 +45,10 @@ export default function Chat({ initialMessage }) {
       hasInitialized.current =false
     }
     }, [anonUser, createThread])
+
+    const handleMessageCountChange = useCallback((count) => {
+      setMessageCount(count);
+    }, []);
     
 
   useEffect(() => {
@@ -66,17 +76,37 @@ export default function Chat({ initialMessage }) {
         <button
         className="chat-header-new-thread-btn"
         title="Start new conversation"
+        onClick={() => {
+          if (!confirm("Are you sure you want to clear this thread?")) return;
+          localStorage.removeItem(currentThreadIdStoragekey);
+           setMessageCount(0);
+          setCurrentThreadId(null);
+          hasInitialized.current = false; // Reset initialization flag
+        }}
+        disabled={!anonUser || messageCount ===0}
         >
           <BrushCleaning size={16}/>
         </button>
       </div>
 
-      <div className="chat-messages-container">
+      <div ref={chatBoxRef} className="chat-messages-container">
+        {threadQuery.data && anonUser ? (
+        <MessageList
+        threadId = {threadQuery.data._id}
+        userId={anonUser._id}
+        chatBoxRef={chatBoxRef}
+        onMessageCountChange={handleMessageCountChange}
+        />
+        ): (
+          <div className="chat-loading-container">
+            <div className="chat-loading-spinner">
+              loading...
+            
+            </div>
+          </div>
+        )}
+      </div>
 
-
-        {/* <MessagesList
-
-        /> */}
         <div className="chat-input-wrapper">
           <MessageInput
           userId={anonUser?._id}
@@ -84,7 +114,7 @@ export default function Chat({ initialMessage }) {
           defaultMessage={initialMessage}
           />
         </div>
-      </div>
+
     </div>
   )
 }

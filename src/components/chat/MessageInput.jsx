@@ -1,5 +1,4 @@
 import { useMutation } from 'convex/react'
-import React from 'react'
 import { useState } from 'react'
 import { api } from '../../../convex/_generated/api' 
 import { optimisticallySendMessage } from '@convex-dev/agent/react'
@@ -25,7 +24,9 @@ function MessageInput({ userId, threadId, defaultMessage}) {
         setMessage("")
     }
 
-    const canSubmit = !!userId && !!threadId && !message
+    const canSubmit = !!userId && !!threadId && !!message
+
+    
 
 
   return (

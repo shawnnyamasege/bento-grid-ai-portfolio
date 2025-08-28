@@ -7,7 +7,8 @@ import { vStreamArgs } from "@convex-dev/agent";
 
 export const findThreadForUser = query({
     args: {
-        threadId: v.string()
+        threadId: v.string(),
+        userId: v.id("users")
     },
     handler: async (ctx, args) => {
         const thread = await findThread(ctx, { threadId: args.threadId })
