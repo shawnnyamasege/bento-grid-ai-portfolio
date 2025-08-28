@@ -1,7 +1,7 @@
 import { Section } from "./Section"
 import { Twitter, Instagram, Linkedin } from "lucide-react"
 import "../../styles/go-to-home.css"
-import meImage from "../../assets/avatars/shawn.jpg"
+import meImage from "../../assets/avatars/me.jpg"
 
 export default function GoToHomeSection({ delay = 0 }) {
   const handleGoHome = () => {
